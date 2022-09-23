@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--Metadata for validating the tags which are going to be used in this file-->
+<!--
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans.xsd"-->
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+
+
+">
+    <!--Content Filtering-->
+    <bean id="contentFiltering"
+          class="com.springmetadata.springmetadata.configuartion.SpringContentFiltering"
+    ></bean>
+
+    <!--Multi Filtering-->
+    <bean id="multiFiltering"
+          class="com.springmetadata.springmetadata.configuartion.SpringMultiFilter"
+    ></bean>
+
+    <bean id="checkComponent"
+          class="com.springmetadata.springmetadata.componentScan.CheckComponentScan"
+    ></bean>
+    <!--Movie Recommendation-->
+    <bean id="movieRecommendation"
+          class="com.springmetadata.springmetadata.configuartion.SpringMovieRecommendation"
+    >
+        <!-- Constructor Dependency Injection -->
+        <!-- Required Constructor with filter parameter and set this filter also-->
+<!--        <constructor-arg ref = "contentFiltering"/> -->
+
+        <!-- Property Dependency Injection -->
+        <!-- Required Default constructor and one setter -->
+        <property name="filter" ref="checkComponent"/>
+
+    </bean>
+
+    <context:component-scan base-package="com.springmetadata.springmetadata.componentScan"/>
+</beans>

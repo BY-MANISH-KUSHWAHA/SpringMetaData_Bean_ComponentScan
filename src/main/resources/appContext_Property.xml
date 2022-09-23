@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--Metadata for validating the tags which are going to be used in this file-->
+<!--
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans.xsd"-->
+<beans
+        xmlns = "http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+    <!--Content Filtering-->
+    <bean id="contentFiltering"
+          class="com.springmetadata.springmetadata.configuartion.SpringContentFiltering"
+    ></bean>
+
+    <!--Multi Filtering-->
+    <bean id="multiFiltering"
+          class="com.springmetadata.springmetadata.configuartion.SpringMultiFilter"
+    ></bean>
+
+    <!--Movie Recommendation-->
+    <bean id="movieRecommendation"
+          class="com.springmetadata.springmetadata.configuartion.SpringMovieRecommendation"
+    >
+        <!-- Property Dependency Injection -->
+        <!-- Required Default constructor and one setter -->
+        <property name="filter" ref="multiFiltering"/>
+
+    </bean>
+</beans>

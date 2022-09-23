@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employeeManagement> <!-- Tag -->
+    <employee category = "developer" >
+        <title lang = "en">Spring Developer</title>
+        <author>Manish</author>
+        <year>2022</year>
+    </employee>
+</employeeManagement>
+        <!-- Entity{person} => Attributes: Hair color, Eye Color -->
+        <!-- lang, catergory are Attributes, Elements- ->
